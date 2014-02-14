@@ -65,17 +65,37 @@
       <version>${hadoop.version}</version>
     </dependency>
     <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr-runtime</artifactId>
+      <version>3.5.1</version>
+    </dependency>
+    <dependency>
         <groupId>org.scalatest</groupId>
         <artifactId>scalatest_${scala.binary.version}</artifactId>
         <version>1.9.1</version>
         <scope>test</scope>
-      </dependency>
+    </dependency>
 
   </dependencies>
   <build>
     <outputDirectory>target/scala/classes</outputDirectory>
     <testOutputDirectory>target/scala/test-classes</testOutputDirectory>
       <plugins>
+        <plugin>
+          <groupId>org.antlr</groupId>
+          <artifactId>antlr3-maven-plugin</artifactId>
+          <version>3.5.1</version>
+          <executions>
+            <execution>
+              <configuration>
+                 <outputDirectory>src/main/java</outputDirectory>
+              </configuration>
+              <goals>
+                <goal>antlr</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
         <plugin>
           <groupId>net.alchim31.maven</groupId>
           <artifactId>scala-maven-plugin</artifactId>
@@ -143,6 +163,7 @@
           <version>2.12.4</version>
           <configuration>
             <!-- Uses scalatest instead -->
+            <argLine>-Xmx1024m</argLine>
             <skipTests>true</skipTests>
           </configuration>
         </plugin>
