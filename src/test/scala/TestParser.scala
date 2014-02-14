@@ -28,7 +28,7 @@ class TestParser extends FlatSpec with Matchers {
     val simplePipeline = "ls -la --color=true `du`| grep \"foo\";exit"
     val tree = driver.getSyntaxTree(simplePipeline)
     val commandList = driver.getCommandTokens(tree)
-    val commandPairs = driver.toCommandPairs(commandList)
+    val commandPairs = driver.toCommandBigrams(commandList)
     System.out.println(commandPairs)
     assert(commandPairs != null)
     assert(commandPairs.contains(("ls", "du")))

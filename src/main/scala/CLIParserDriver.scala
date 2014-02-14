@@ -8,7 +8,7 @@ import org.antlr.runtime.{CommonTokenStream, ANTLRStringStream}
  */
 class CLIParserDriver {
   type CommandType = Tuple2[String, List[String]]
-  type CommandPair = Tuple2[String, String]
+  type CommandBigram = Tuple2[String, String]
 
   def getSyntaxTree(commandLine : String) :CommonTree= {
     val lexer = new bashastLexer(new ANTLRStringStream(commandLine))
@@ -45,13 +45,13 @@ class CLIParserDriver {
   }
 
 
-  def toCommandPairs(commands : List[CommandType]) : List[CommandPair] = {
+  def toCommandBigrams(commands : List[CommandType]) : List[CommandBigram] = {
     def getCommandsExceptMe(command: String): List[String] = {
       val projection = commands.map( (x:CommandType) => x._1).dropWhile(!_.equals(command)).drop(1)
         Set(projection: _*).toList.asInstanceOf[List[String]]
       }
 
-    commands.foldLeft(List.empty[CommandPair]){ (acc, command) => acc ++getCommandsExceptMe(command._1).map( (x) => (command._1, x) ) ++ command._2.map( (x) => (command._1, x) ) }
+    commands.foldLeft(List.empty[CommandBigram]){ (acc, command) => acc ++getCommandsExceptMe(command._1).map( (x) => (command._1, x) ) ++ command._2.map( (x) => (command._1, x) ) }
     }
 
 }
