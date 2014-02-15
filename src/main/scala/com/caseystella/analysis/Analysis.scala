@@ -14,7 +14,7 @@ class Analysis {
   type Bigram = Tuple2[String, String]
   type ScoredBigram = Tuple2[Bigram, Double]
 
-  def analyze( commands : RDD[String]):RDD[Tuple2[Tuple2[String, String], Double]] = {
+  def analyze( commands : RDD[String]):RDD[ScoredBigram] = {
     val parser = new CLIParserDriver
     val commandsAsBigrams= commands.map( line => parser.toCommandBigrams(parser.getCommandTokens(parser.getSyntaxTree(line.toString))))
     val num_commands = commandsAsBigrams.count()
@@ -26,7 +26,7 @@ class Analysis {
                                        .map( (x:Tuple2[Bigram, Int]) => (x._1, Math.log1p(1.0*x._2/num_commands) ))
 
     // compute IDF
-    val idf = commandsAsBigrams.flatMap( (bigrams:List[Bigram]) => Set(bigrams: _*).toList.asInstanceOf[List[Tuple2[String, String]]])
+    val idf = commandsAsBigrams.flatMap( (bigrams:List[Bigram]) => Set(bigrams: _*).toList.asInstanceOf[List[Bigram]])
                                .map( (b:Bigram) => (b, 1))
                                .reduceByKey( (x:Int, y:Int) => x + y)
                                .map((x:Tuple2[Bigram, Int]) => (x._1, Math.log(1.0*num_commands/x._2)))
