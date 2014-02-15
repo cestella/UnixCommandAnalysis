@@ -30,9 +30,9 @@ object Driver {
     }
     nextOption(Map(),argsList)
   }
-  def main(argv:Array[String]) = {
-
-    if(argv.length < 2) { println(usage); sys.exit(-1)}
+  def main(args:Array[String]) = {
+    def argv = args(0).split(' ')
+    if(argv.length < 2) { println("Dunno: " + argv.toList + "\n" + usage); sys.exit(-1)}
     val argsList = argv.toList
     val optionMap = parseOptions(argsList)
     val inputPath = optionMap('input)
