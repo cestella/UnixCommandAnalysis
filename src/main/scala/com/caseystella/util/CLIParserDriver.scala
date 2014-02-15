@@ -10,7 +10,7 @@ import com.caseystella.parser.{bashastParser, bashastLexer}
 /**
  * Created by cstella on 2/14/14.
  */
-class CLIParserDriver {
+class CLIParserDriver extends Serializable{
   type CommandType = Tuple2[String, List[String]]
   type CommandBigram = Tuple2[String, String]
 
@@ -55,7 +55,9 @@ class CLIParserDriver {
         Set(projection: _*).toList.asInstanceOf[List[String]]
       }
 
-    commands.foldLeft(List.empty[CommandBigram]){ (acc, command) => acc ++getCommandsExceptMe(command._1).map( (x) => (command._1, x) ) ++ command._2.map( (x) => (command._1, x) ) }
+    commands.foldLeft(List.empty[CommandBigram]){
+      (acc, command) => acc ++ getCommandsExceptMe(command._1).map( (x) => (command._1, x) ) ++ command._2.map( (x) => (command._1, x) )
+    }.filter((y:CommandBigram) => y._1 != y._2)
   }
 
 }
