@@ -25,6 +25,8 @@ options
 	language	= Java;
 	ASTLabelType	= CommonTree;
 }
+
+
 tokens{
 	ARG;
 	ARRAY;
@@ -77,6 +79,13 @@ tokens{
 	SINGLE_QUOTED_STRING;
 	DOUBLE_QUOTED_STRING;
 }
+@lexer::header{
+  package com.caseystella.parser;
+}
+@parser::header{
+  package com.caseystella.parser;
+}
+
 
 start	:	(flcomment! EOL!)? EOL!* list^ ;
 //Because the comment token doesn't handle the first comment in a file if it's on the first line, have a parser rule for it

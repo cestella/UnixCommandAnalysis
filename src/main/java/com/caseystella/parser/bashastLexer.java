@@ -1,4 +1,7 @@
-// $ANTLR 3.5.1 com/caseystella/parser/bashast.g 2014-02-14 08:36:18
+// $ANTLR 3.5.1 com/caseystella/parser/bashast.g 2014-02-14 16:23:34
+
+  package com.caseystella.parser;
+
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -164,8 +167,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = T__137;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:7:8: ( '-p' )
-			// com/caseystella/parser/bashast.g:7:10: '-p'
+			// com/caseystella/parser/bashast.g:11:8: ( '-p' )
+			// com/caseystella/parser/bashast.g:11:10: '-p'
 			{
 			match("-p"); 
 
@@ -185,8 +188,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = T__138;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:8:8: ( '_' )
-			// com/caseystella/parser/bashast.g:8:10: '_'
+			// com/caseystella/parser/bashast.g:12:8: ( '_' )
+			// com/caseystella/parser/bashast.g:12:10: '_'
 			{
 			match('_'); 
 			}
@@ -205,10 +208,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:510:5: ( ( BLANK | EOL ) '#' (~ ( '\\n' | '\\r' ) )* )
-			// com/caseystella/parser/bashast.g:510:8: ( BLANK | EOL ) '#' (~ ( '\\n' | '\\r' ) )*
+			// com/caseystella/parser/bashast.g:519:5: ( ( BLANK | EOL ) '#' (~ ( '\\n' | '\\r' ) )* )
+			// com/caseystella/parser/bashast.g:519:8: ( BLANK | EOL ) '#' (~ ( '\\n' | '\\r' ) )*
 			{
-			// com/caseystella/parser/bashast.g:510:8: ( BLANK | EOL )
+			// com/caseystella/parser/bashast.g:519:8: ( BLANK | EOL )
 			int alt1=2;
 			int LA1_0 = input.LA(1);
 			if ( (LA1_0=='\t'||LA1_0==' ') ) {
@@ -226,14 +229,14 @@ public class bashastLexer extends Lexer {
 
 			switch (alt1) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:510:9: BLANK
+					// com/caseystella/parser/bashast.g:519:9: BLANK
 					{
 					mBLANK(); 
 
 					}
 					break;
 				case 2 :
-					// com/caseystella/parser/bashast.g:510:15: EOL
+					// com/caseystella/parser/bashast.g:519:15: EOL
 					{
 					mEOL(); 
 
@@ -243,7 +246,7 @@ public class bashastLexer extends Lexer {
 			}
 
 			match('#'); 
-			// com/caseystella/parser/bashast.g:510:24: (~ ( '\\n' | '\\r' ) )*
+			// com/caseystella/parser/bashast.g:519:24: (~ ( '\\n' | '\\r' ) )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -289,8 +292,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = BANG;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:513:6: ( '!' )
-			// com/caseystella/parser/bashast.g:513:8: '!'
+			// com/caseystella/parser/bashast.g:522:6: ( '!' )
+			// com/caseystella/parser/bashast.g:522:8: '!'
 			{
 			match('!'); 
 			}
@@ -309,8 +312,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = CASE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:514:6: ( 'case' )
-			// com/caseystella/parser/bashast.g:514:8: 'case'
+			// com/caseystella/parser/bashast.g:523:6: ( 'case' )
+			// com/caseystella/parser/bashast.g:523:8: 'case'
 			{
 			match("case"); 
 
@@ -330,8 +333,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DO;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:515:4: ( 'do' )
-			// com/caseystella/parser/bashast.g:515:6: 'do'
+			// com/caseystella/parser/bashast.g:524:4: ( 'do' )
+			// com/caseystella/parser/bashast.g:524:6: 'do'
 			{
 			match("do"); 
 
@@ -351,8 +354,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DONE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:516:6: ( 'done' )
-			// com/caseystella/parser/bashast.g:516:8: 'done'
+			// com/caseystella/parser/bashast.g:525:6: ( 'done' )
+			// com/caseystella/parser/bashast.g:525:8: 'done'
 			{
 			match("done"); 
 
@@ -372,8 +375,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ELIF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:517:6: ( 'elif' )
-			// com/caseystella/parser/bashast.g:517:8: 'elif'
+			// com/caseystella/parser/bashast.g:526:6: ( 'elif' )
+			// com/caseystella/parser/bashast.g:526:8: 'elif'
 			{
 			match("elif"); 
 
@@ -393,8 +396,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ELSE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:518:6: ( 'else' )
-			// com/caseystella/parser/bashast.g:518:8: 'else'
+			// com/caseystella/parser/bashast.g:527:6: ( 'else' )
+			// com/caseystella/parser/bashast.g:527:8: 'else'
 			{
 			match("else"); 
 
@@ -414,8 +417,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ESAC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:519:6: ( 'esac' )
-			// com/caseystella/parser/bashast.g:519:8: 'esac'
+			// com/caseystella/parser/bashast.g:528:6: ( 'esac' )
+			// com/caseystella/parser/bashast.g:528:8: 'esac'
 			{
 			match("esac"); 
 
@@ -435,8 +438,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = FI;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:520:4: ( 'fi' )
-			// com/caseystella/parser/bashast.g:520:6: 'fi'
+			// com/caseystella/parser/bashast.g:529:4: ( 'fi' )
+			// com/caseystella/parser/bashast.g:529:6: 'fi'
 			{
 			match("fi"); 
 
@@ -456,8 +459,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = FOR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:521:5: ( 'for' )
-			// com/caseystella/parser/bashast.g:521:7: 'for'
+			// com/caseystella/parser/bashast.g:530:5: ( 'for' )
+			// com/caseystella/parser/bashast.g:530:7: 'for'
 			{
 			match("for"); 
 
@@ -477,8 +480,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = FUNCTION;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:522:9: ( 'function' )
-			// com/caseystella/parser/bashast.g:522:11: 'function'
+			// com/caseystella/parser/bashast.g:531:9: ( 'function' )
+			// com/caseystella/parser/bashast.g:531:11: 'function'
 			{
 			match("function"); 
 
@@ -498,8 +501,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = IF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:523:4: ( 'if' )
-			// com/caseystella/parser/bashast.g:523:6: 'if'
+			// com/caseystella/parser/bashast.g:532:4: ( 'if' )
+			// com/caseystella/parser/bashast.g:532:6: 'if'
 			{
 			match("if"); 
 
@@ -519,8 +522,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = IN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:524:4: ( 'in' )
-			// com/caseystella/parser/bashast.g:524:6: 'in'
+			// com/caseystella/parser/bashast.g:533:4: ( 'in' )
+			// com/caseystella/parser/bashast.g:533:6: 'in'
 			{
 			match("in"); 
 
@@ -540,8 +543,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = SELECT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:525:8: ( 'select' )
-			// com/caseystella/parser/bashast.g:525:10: 'select'
+			// com/caseystella/parser/bashast.g:534:8: ( 'select' )
+			// com/caseystella/parser/bashast.g:534:10: 'select'
 			{
 			match("select"); 
 
@@ -561,8 +564,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = THEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:526:6: ( 'then' )
-			// com/caseystella/parser/bashast.g:526:8: 'then'
+			// com/caseystella/parser/bashast.g:535:6: ( 'then' )
+			// com/caseystella/parser/bashast.g:535:8: 'then'
 			{
 			match("then"); 
 
@@ -582,8 +585,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = UNTIL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:527:7: ( 'until' )
-			// com/caseystella/parser/bashast.g:527:9: 'until'
+			// com/caseystella/parser/bashast.g:536:7: ( 'until' )
+			// com/caseystella/parser/bashast.g:536:9: 'until'
 			{
 			match("until"); 
 
@@ -603,8 +606,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = WHILE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:528:7: ( 'while' )
-			// com/caseystella/parser/bashast.g:528:9: 'while'
+			// com/caseystella/parser/bashast.g:537:7: ( 'while' )
+			// com/caseystella/parser/bashast.g:537:9: 'while'
 			{
 			match("while"); 
 
@@ -624,8 +627,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LBRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:529:8: ( '{' )
-			// com/caseystella/parser/bashast.g:529:10: '{'
+			// com/caseystella/parser/bashast.g:538:8: ( '{' )
+			// com/caseystella/parser/bashast.g:538:10: '{'
 			{
 			match('{'); 
 			}
@@ -644,8 +647,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = RBRACE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:530:8: ( '}' )
-			// com/caseystella/parser/bashast.g:530:10: '}'
+			// com/caseystella/parser/bashast.g:539:8: ( '}' )
+			// com/caseystella/parser/bashast.g:539:10: '}'
 			{
 			match('}'); 
 			}
@@ -664,8 +667,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = TIME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:531:6: ( 'time' )
-			// com/caseystella/parser/bashast.g:531:8: 'time'
+			// com/caseystella/parser/bashast.g:540:6: ( 'time' )
+			// com/caseystella/parser/bashast.g:540:8: 'time'
 			{
 			match("time"); 
 
@@ -685,8 +688,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = RPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:534:8: ( ')' )
-			// com/caseystella/parser/bashast.g:534:10: ')'
+			// com/caseystella/parser/bashast.g:543:8: ( ')' )
+			// com/caseystella/parser/bashast.g:543:10: ')'
 			{
 			match(')'); 
 			}
@@ -705,8 +708,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:535:8: ( '(' )
-			// com/caseystella/parser/bashast.g:535:10: '('
+			// com/caseystella/parser/bashast.g:544:8: ( '(' )
+			// com/caseystella/parser/bashast.g:544:10: '('
 			{
 			match('('); 
 			}
@@ -725,8 +728,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LLPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:536:9: ( '((' )
-			// com/caseystella/parser/bashast.g:536:11: '(('
+			// com/caseystella/parser/bashast.g:545:9: ( '((' )
+			// com/caseystella/parser/bashast.g:545:11: '(('
 			{
 			match("(("); 
 
@@ -746,8 +749,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = RRPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:537:9: ( '))' )
-			// com/caseystella/parser/bashast.g:537:11: '))'
+			// com/caseystella/parser/bashast.g:546:9: ( '))' )
+			// com/caseystella/parser/bashast.g:546:11: '))'
 			{
 			match("))"); 
 
@@ -767,8 +770,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LSQUARE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:538:9: ( '[' )
-			// com/caseystella/parser/bashast.g:538:11: '['
+			// com/caseystella/parser/bashast.g:547:9: ( '[' )
+			// com/caseystella/parser/bashast.g:547:11: '['
 			{
 			match('['); 
 			}
@@ -787,8 +790,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = RSQUARE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:539:9: ( ']' )
-			// com/caseystella/parser/bashast.g:539:11: ']'
+			// com/caseystella/parser/bashast.g:548:9: ( ']' )
+			// com/caseystella/parser/bashast.g:548:11: ']'
 			{
 			match(']'); 
 			}
@@ -807,8 +810,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = TICK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:540:6: ( '`' )
-			// com/caseystella/parser/bashast.g:540:8: '`'
+			// com/caseystella/parser/bashast.g:549:6: ( '`' )
+			// com/caseystella/parser/bashast.g:549:8: '`'
 			{
 			match('`'); 
 			}
@@ -827,8 +830,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DOLLAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:541:8: ( '$' )
-			// com/caseystella/parser/bashast.g:541:10: '$'
+			// com/caseystella/parser/bashast.g:550:8: ( '$' )
+			// com/caseystella/parser/bashast.g:550:10: '$'
 			{
 			match('$'); 
 			}
@@ -847,8 +850,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = AT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:542:4: ( '@' )
-			// com/caseystella/parser/bashast.g:542:6: '@'
+			// com/caseystella/parser/bashast.g:551:4: ( '@' )
+			// com/caseystella/parser/bashast.g:551:6: '@'
 			{
 			match('@'); 
 			}
@@ -867,8 +870,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:543:5: ( '.' )
-			// com/caseystella/parser/bashast.g:543:7: '.'
+			// com/caseystella/parser/bashast.g:552:5: ( '.' )
+			// com/caseystella/parser/bashast.g:552:7: '.'
 			{
 			match('.'); 
 			}
@@ -887,8 +890,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DOTDOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:544:8: ( '..' )
-			// com/caseystella/parser/bashast.g:544:10: '..'
+			// com/caseystella/parser/bashast.g:553:8: ( '..' )
+			// com/caseystella/parser/bashast.g:553:10: '..'
 			{
 			match(".."); 
 
@@ -908,8 +911,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:546:5: ( 'let' )
-			// com/caseystella/parser/bashast.g:546:7: 'let'
+			// com/caseystella/parser/bashast.g:555:5: ( 'let' )
+			// com/caseystella/parser/bashast.g:555:7: 'let'
 			{
 			match("let"); 
 
@@ -929,8 +932,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = TIMES;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:547:7: ( '*' )
-			// com/caseystella/parser/bashast.g:547:9: '*'
+			// com/caseystella/parser/bashast.g:556:7: ( '*' )
+			// com/caseystella/parser/bashast.g:556:9: '*'
 			{
 			match('*'); 
 			}
@@ -949,8 +952,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = EQUALS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:548:8: ( '=' )
-			// com/caseystella/parser/bashast.g:548:10: '='
+			// com/caseystella/parser/bashast.g:557:8: ( '=' )
+			// com/caseystella/parser/bashast.g:557:10: '='
 			{
 			match('='); 
 			}
@@ -969,8 +972,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:549:7: ( '-' )
-			// com/caseystella/parser/bashast.g:549:9: '-'
+			// com/caseystella/parser/bashast.g:558:7: ( '-' )
+			// com/caseystella/parser/bashast.g:558:9: '-'
 			{
 			match('-'); 
 			}
@@ -989,8 +992,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:550:6: ( '+' )
-			// com/caseystella/parser/bashast.g:550:8: '+'
+			// com/caseystella/parser/bashast.g:559:6: ( '+' )
+			// com/caseystella/parser/bashast.g:559:8: '+'
 			{
 			match('+'); 
 			}
@@ -1009,8 +1012,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = INC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:551:5: ( '++' )
-			// com/caseystella/parser/bashast.g:551:7: '++'
+			// com/caseystella/parser/bashast.g:560:5: ( '++' )
+			// com/caseystella/parser/bashast.g:560:7: '++'
 			{
 			match("++"); 
 
@@ -1030,8 +1033,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DEC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:552:5: ( '--' )
-			// com/caseystella/parser/bashast.g:552:7: '--'
+			// com/caseystella/parser/bashast.g:561:5: ( '--' )
+			// com/caseystella/parser/bashast.g:561:7: '--'
 			{
 			match("--"); 
 
@@ -1051,8 +1054,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = EXP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:553:5: ( '**' )
-			// com/caseystella/parser/bashast.g:553:7: '**'
+			// com/caseystella/parser/bashast.g:562:5: ( '**' )
+			// com/caseystella/parser/bashast.g:562:7: '**'
 			{
 			match("**"); 
 
@@ -1072,8 +1075,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = AMP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:554:5: ( '&' )
-			// com/caseystella/parser/bashast.g:554:7: '&'
+			// com/caseystella/parser/bashast.g:563:5: ( '&' )
+			// com/caseystella/parser/bashast.g:563:7: '&'
 			{
 			match('&'); 
 			}
@@ -1092,8 +1095,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:555:5: ( '<=' )
-			// com/caseystella/parser/bashast.g:555:7: '<='
+			// com/caseystella/parser/bashast.g:564:5: ( '<=' )
+			// com/caseystella/parser/bashast.g:564:7: '<='
 			{
 			match("<="); 
 
@@ -1113,8 +1116,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = GEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:556:5: ( '>=' )
-			// com/caseystella/parser/bashast.g:556:7: '>='
+			// com/caseystella/parser/bashast.g:565:5: ( '>=' )
+			// com/caseystella/parser/bashast.g:565:7: '>='
 			{
 			match(">="); 
 
@@ -1134,8 +1137,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = CARET;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:557:7: ( '^' )
-			// com/caseystella/parser/bashast.g:557:9: '^'
+			// com/caseystella/parser/bashast.g:566:7: ( '^' )
+			// com/caseystella/parser/bashast.g:566:9: '^'
 			{
 			match('^'); 
 			}
@@ -1154,8 +1157,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:558:4: ( '<' )
-			// com/caseystella/parser/bashast.g:558:6: '<'
+			// com/caseystella/parser/bashast.g:567:4: ( '<' )
+			// com/caseystella/parser/bashast.g:567:6: '<'
 			{
 			match('<'); 
 			}
@@ -1174,8 +1177,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:559:4: ( '>' )
-			// com/caseystella/parser/bashast.g:559:6: '>'
+			// com/caseystella/parser/bashast.g:568:4: ( '>' )
+			// com/caseystella/parser/bashast.g:568:6: '>'
 			{
 			match('>'); 
 			}
@@ -1194,8 +1197,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LSHIFT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:560:8: ( '<<' )
-			// com/caseystella/parser/bashast.g:560:10: '<<'
+			// com/caseystella/parser/bashast.g:569:8: ( '<<' )
+			// com/caseystella/parser/bashast.g:569:10: '<<'
 			{
 			match("<<"); 
 
@@ -1215,8 +1218,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = RSHIFT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:561:8: ( '>>' )
-			// com/caseystella/parser/bashast.g:561:10: '>>'
+			// com/caseystella/parser/bashast.g:570:8: ( '>>' )
+			// com/caseystella/parser/bashast.g:570:10: '>>'
 			{
 			match(">>"); 
 
@@ -1236,10 +1239,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ARITH_ASSIGN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:563:2: ( ( TIMES | SLASH | PCT | PLUS | MINUS | LSHIFT | RSHIFT | AMP | CARET | PIPE ) EQUALS )
-			// com/caseystella/parser/bashast.g:563:4: ( TIMES | SLASH | PCT | PLUS | MINUS | LSHIFT | RSHIFT | AMP | CARET | PIPE ) EQUALS
+			// com/caseystella/parser/bashast.g:572:2: ( ( TIMES | SLASH | PCT | PLUS | MINUS | LSHIFT | RSHIFT | AMP | CARET | PIPE ) EQUALS )
+			// com/caseystella/parser/bashast.g:572:4: ( TIMES | SLASH | PCT | PLUS | MINUS | LSHIFT | RSHIFT | AMP | CARET | PIPE ) EQUALS
 			{
-			// com/caseystella/parser/bashast.g:563:4: ( TIMES | SLASH | PCT | PLUS | MINUS | LSHIFT | RSHIFT | AMP | CARET | PIPE )
+			// com/caseystella/parser/bashast.g:572:4: ( TIMES | SLASH | PCT | PLUS | MINUS | LSHIFT | RSHIFT | AMP | CARET | PIPE )
 			int alt3=10;
 			switch ( input.LA(1) ) {
 			case '*':
@@ -1299,70 +1302,70 @@ public class bashastLexer extends Lexer {
 			}
 			switch (alt3) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:563:5: TIMES
+					// com/caseystella/parser/bashast.g:572:5: TIMES
 					{
 					mTIMES(); 
 
 					}
 					break;
 				case 2 :
-					// com/caseystella/parser/bashast.g:563:11: SLASH
+					// com/caseystella/parser/bashast.g:572:11: SLASH
 					{
 					mSLASH(); 
 
 					}
 					break;
 				case 3 :
-					// com/caseystella/parser/bashast.g:563:17: PCT
+					// com/caseystella/parser/bashast.g:572:17: PCT
 					{
 					mPCT(); 
 
 					}
 					break;
 				case 4 :
-					// com/caseystella/parser/bashast.g:563:21: PLUS
+					// com/caseystella/parser/bashast.g:572:21: PLUS
 					{
 					mPLUS(); 
 
 					}
 					break;
 				case 5 :
-					// com/caseystella/parser/bashast.g:563:26: MINUS
+					// com/caseystella/parser/bashast.g:572:26: MINUS
 					{
 					mMINUS(); 
 
 					}
 					break;
 				case 6 :
-					// com/caseystella/parser/bashast.g:563:32: LSHIFT
+					// com/caseystella/parser/bashast.g:572:32: LSHIFT
 					{
 					mLSHIFT(); 
 
 					}
 					break;
 				case 7 :
-					// com/caseystella/parser/bashast.g:563:39: RSHIFT
+					// com/caseystella/parser/bashast.g:572:39: RSHIFT
 					{
 					mRSHIFT(); 
 
 					}
 					break;
 				case 8 :
-					// com/caseystella/parser/bashast.g:563:46: AMP
+					// com/caseystella/parser/bashast.g:572:46: AMP
 					{
 					mAMP(); 
 
 					}
 					break;
 				case 9 :
-					// com/caseystella/parser/bashast.g:563:50: CARET
+					// com/caseystella/parser/bashast.g:572:50: CARET
 					{
 					mCARET(); 
 
 					}
 					break;
 				case 10 :
-					// com/caseystella/parser/bashast.g:563:56: PIPE
+					// com/caseystella/parser/bashast.g:572:56: PIPE
 					{
 					mPIPE(); 
 
@@ -1389,8 +1392,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = SEMIC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:565:7: ( ';' )
-			// com/caseystella/parser/bashast.g:565:9: ';'
+			// com/caseystella/parser/bashast.g:574:7: ( ';' )
+			// com/caseystella/parser/bashast.g:574:9: ';'
 			{
 			match(';'); 
 			}
@@ -1409,8 +1412,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DOUBLE_SEMIC;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:567:2: ( ';;' )
-			// com/caseystella/parser/bashast.g:567:4: ';;'
+			// com/caseystella/parser/bashast.g:576:2: ( ';;' )
+			// com/caseystella/parser/bashast.g:576:4: ';;'
 			{
 			match(";;"); 
 
@@ -1430,8 +1433,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = PIPE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:568:6: ( '|' )
-			// com/caseystella/parser/bashast.g:568:8: '|'
+			// com/caseystella/parser/bashast.g:577:6: ( '|' )
+			// com/caseystella/parser/bashast.g:577:8: '|'
 			{
 			match('|'); 
 			}
@@ -1450,8 +1453,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = QUOTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:569:7: ( '\"' )
-			// com/caseystella/parser/bashast.g:569:9: '\"'
+			// com/caseystella/parser/bashast.g:578:7: ( '\"' )
+			// com/caseystella/parser/bashast.g:578:9: '\"'
 			{
 			match('\"'); 
 			}
@@ -1470,8 +1473,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = SQUOTE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:570:8: ( '\\'' )
-			// com/caseystella/parser/bashast.g:570:10: '\\''
+			// com/caseystella/parser/bashast.g:579:8: ( '\\'' )
+			// com/caseystella/parser/bashast.g:579:10: '\\''
 			{
 			match('\''); 
 			}
@@ -1490,8 +1493,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = COMMA;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:571:7: ( ',' )
-			// com/caseystella/parser/bashast.g:571:9: ','
+			// com/caseystella/parser/bashast.g:580:7: ( ',' )
+			// com/caseystella/parser/bashast.g:580:9: ','
 			{
 			match(','); 
 			}
@@ -1510,10 +1513,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = BLANK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:573:7: ( ( ' ' | '\\t' )+ )
-			// com/caseystella/parser/bashast.g:573:9: ( ' ' | '\\t' )+
+			// com/caseystella/parser/bashast.g:582:7: ( ( ' ' | '\\t' )+ )
+			// com/caseystella/parser/bashast.g:582:9: ( ' ' | '\\t' )+
 			{
-			// com/caseystella/parser/bashast.g:573:9: ( ' ' | '\\t' )+
+			// com/caseystella/parser/bashast.g:582:9: ( ' ' | '\\t' )+
 			int cnt4=0;
 			loop4:
 			while (true) {
@@ -1562,10 +1565,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = EOL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:574:5: ( ( ( '\\r' )? '\\n' )+ )
-			// com/caseystella/parser/bashast.g:574:7: ( ( '\\r' )? '\\n' )+
+			// com/caseystella/parser/bashast.g:583:5: ( ( ( '\\r' )? '\\n' )+ )
+			// com/caseystella/parser/bashast.g:583:7: ( ( '\\r' )? '\\n' )+
 			{
-			// com/caseystella/parser/bashast.g:574:7: ( ( '\\r' )? '\\n' )+
+			// com/caseystella/parser/bashast.g:583:7: ( ( '\\r' )? '\\n' )+
 			int cnt6=0;
 			loop6:
 			while (true) {
@@ -1577,9 +1580,9 @@ public class bashastLexer extends Lexer {
 
 				switch (alt6) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:574:8: ( '\\r' )? '\\n'
+					// com/caseystella/parser/bashast.g:583:8: ( '\\r' )? '\\n'
 					{
-					// com/caseystella/parser/bashast.g:574:8: ( '\\r' )?
+					// com/caseystella/parser/bashast.g:583:8: ( '\\r' )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0=='\r') ) {
@@ -1587,7 +1590,7 @@ public class bashastLexer extends Lexer {
 					}
 					switch (alt5) {
 						case 1 :
-							// com/caseystella/parser/bashast.g:574:8: '\\r'
+							// com/caseystella/parser/bashast.g:583:8: '\\r'
 							{
 							match('\r'); 
 							}
@@ -1623,7 +1626,7 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = DIGIT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:576:7: ( '0' .. '9' )
+			// com/caseystella/parser/bashast.g:585:7: ( '0' .. '9' )
 			// com/caseystella/parser/bashast.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1650,12 +1653,12 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:577:8: ( DIGIT ( DIGIT )+ )
-			// com/caseystella/parser/bashast.g:577:10: DIGIT ( DIGIT )+
+			// com/caseystella/parser/bashast.g:586:8: ( DIGIT ( DIGIT )+ )
+			// com/caseystella/parser/bashast.g:586:10: DIGIT ( DIGIT )+
 			{
 			mDIGIT(); 
 
-			// com/caseystella/parser/bashast.g:577:16: ( DIGIT )+
+			// com/caseystella/parser/bashast.g:586:16: ( DIGIT )+
 			int cnt7=0;
 			loop7:
 			while (true) {
@@ -1704,7 +1707,7 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LETTER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:578:8: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+			// com/caseystella/parser/bashast.g:587:8: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
 			// com/caseystella/parser/bashast.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1729,7 +1732,7 @@ public class bashastLexer extends Lexer {
 	// $ANTLR start "ALPHANUM"
 	public final void mALPHANUM() throws RecognitionException {
 		try {
-			// com/caseystella/parser/bashast.g:581:9: ( ( DIGIT | LETTER ) )
+			// com/caseystella/parser/bashast.g:590:9: ( ( DIGIT | LETTER ) )
 			// com/caseystella/parser/bashast.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1754,8 +1757,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = TILDE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:582:7: ( '~' )
-			// com/caseystella/parser/bashast.g:582:9: '~'
+			// com/caseystella/parser/bashast.g:591:7: ( '~' )
+			// com/caseystella/parser/bashast.g:591:9: '~'
 			{
 			match('~'); 
 			}
@@ -1774,8 +1777,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = HERE_STRING_OP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:584:2: ( '<<<' )
-			// com/caseystella/parser/bashast.g:584:4: '<<<'
+			// com/caseystella/parser/bashast.g:593:2: ( '<<<' )
+			// com/caseystella/parser/bashast.g:593:4: '<<<'
 			{
 			match("<<<"); 
 
@@ -1795,8 +1798,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = POUND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:586:7: ( '#' )
-			// com/caseystella/parser/bashast.g:586:9: '#'
+			// com/caseystella/parser/bashast.g:595:7: ( '#' )
+			// com/caseystella/parser/bashast.g:595:9: '#'
 			{
 			match('#'); 
 			}
@@ -1815,8 +1818,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = POUNDPOUND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:588:2: ( '##' )
-			// com/caseystella/parser/bashast.g:588:4: '##'
+			// com/caseystella/parser/bashast.g:597:2: ( '##' )
+			// com/caseystella/parser/bashast.g:597:4: '##'
 			{
 			match("##"); 
 
@@ -1836,8 +1839,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = PCT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:589:5: ( '%' )
-			// com/caseystella/parser/bashast.g:589:7: '%'
+			// com/caseystella/parser/bashast.g:598:5: ( '%' )
+			// com/caseystella/parser/bashast.g:598:7: '%'
 			{
 			match('%'); 
 			}
@@ -1856,8 +1859,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = PCTPCT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:590:8: ( '%%' )
-			// com/caseystella/parser/bashast.g:590:10: '%%'
+			// com/caseystella/parser/bashast.g:599:8: ( '%%' )
+			// com/caseystella/parser/bashast.g:599:10: '%%'
 			{
 			match("%%"); 
 
@@ -1877,8 +1880,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = SLASH;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:591:7: ( '/' )
-			// com/caseystella/parser/bashast.g:591:9: '/'
+			// com/caseystella/parser/bashast.g:600:7: ( '/' )
+			// com/caseystella/parser/bashast.g:600:9: '/'
 			{
 			match('/'); 
 			}
@@ -1897,10 +1900,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = WORDOP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:592:8: ( ( ':-' | ':=' | ':?' | ':+' ) )
-			// com/caseystella/parser/bashast.g:592:10: ( ':-' | ':=' | ':?' | ':+' )
+			// com/caseystella/parser/bashast.g:601:8: ( ( ':-' | ':=' | ':?' | ':+' ) )
+			// com/caseystella/parser/bashast.g:601:10: ( ':-' | ':=' | ':?' | ':+' )
 			{
-			// com/caseystella/parser/bashast.g:592:10: ( ':-' | ':=' | ':?' | ':+' )
+			// com/caseystella/parser/bashast.g:601:10: ( ':-' | ':=' | ':?' | ':+' )
 			int alt8=4;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0==':') ) {
@@ -1946,28 +1949,28 @@ public class bashastLexer extends Lexer {
 
 			switch (alt8) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:592:11: ':-'
+					// com/caseystella/parser/bashast.g:601:11: ':-'
 					{
 					match(":-"); 
 
 					}
 					break;
 				case 2 :
-					// com/caseystella/parser/bashast.g:592:16: ':='
+					// com/caseystella/parser/bashast.g:601:16: ':='
 					{
 					match(":="); 
 
 					}
 					break;
 				case 3 :
-					// com/caseystella/parser/bashast.g:592:21: ':?'
+					// com/caseystella/parser/bashast.g:601:21: ':?'
 					{
 					match(":?"); 
 
 					}
 					break;
 				case 4 :
-					// com/caseystella/parser/bashast.g:592:26: ':+'
+					// com/caseystella/parser/bashast.g:601:26: ':+'
 					{
 					match(":+"); 
 
@@ -1992,8 +1995,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = COLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:593:7: ( ':' )
-			// com/caseystella/parser/bashast.g:593:9: ':'
+			// com/caseystella/parser/bashast.g:602:7: ( ':' )
+			// com/caseystella/parser/bashast.g:602:9: ':'
 			{
 			match(':'); 
 			}
@@ -2012,8 +2015,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = QMARK;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:594:7: ( '?' )
-			// com/caseystella/parser/bashast.g:594:9: '?'
+			// com/caseystella/parser/bashast.g:603:7: ( '?' )
+			// com/caseystella/parser/bashast.g:603:9: '?'
 			{
 			match('?'); 
 			}
@@ -2032,8 +2035,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = TEST;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:596:6: ( 'test' )
-			// com/caseystella/parser/bashast.g:596:8: 'test'
+			// com/caseystella/parser/bashast.g:605:6: ( 'test' )
+			// com/caseystella/parser/bashast.g:605:8: 'test'
 			{
 			match("test"); 
 
@@ -2053,8 +2056,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LOGICAND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:598:2: ( '&&' )
-			// com/caseystella/parser/bashast.g:598:4: '&&'
+			// com/caseystella/parser/bashast.g:607:2: ( '&&' )
+			// com/caseystella/parser/bashast.g:607:4: '&&'
 			{
 			match("&&"); 
 
@@ -2074,8 +2077,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = LOGICOR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:599:9: ( '||' )
-			// com/caseystella/parser/bashast.g:599:11: '||'
+			// com/caseystella/parser/bashast.g:608:9: ( '||' )
+			// com/caseystella/parser/bashast.g:608:11: '||'
 			{
 			match("||"); 
 
@@ -2095,8 +2098,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = BOP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:600:5: ( MINUS LETTER LETTER )
-			// com/caseystella/parser/bashast.g:600:7: MINUS LETTER LETTER
+			// com/caseystella/parser/bashast.g:609:5: ( MINUS LETTER LETTER )
+			// com/caseystella/parser/bashast.g:609:7: MINUS LETTER LETTER
 			{
 			mMINUS(); 
 
@@ -2120,8 +2123,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = UOP;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:601:5: ( MINUS LETTER )
-			// com/caseystella/parser/bashast.g:601:7: MINUS LETTER
+			// com/caseystella/parser/bashast.g:610:5: ( MINUS LETTER )
+			// com/caseystella/parser/bashast.g:610:7: MINUS LETTER
 			{
 			mMINUS(); 
 
@@ -2143,8 +2146,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = EXPORT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:603:8: ( 'export' )
-			// com/caseystella/parser/bashast.g:603:10: 'export'
+			// com/caseystella/parser/bashast.g:612:8: ( 'export' )
+			// com/caseystella/parser/bashast.g:612:10: 'export'
 			{
 			match("export"); 
 
@@ -2164,10 +2167,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = CONTINUE_LINE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:606:2: ( ( '\\\\' EOL )+ )
-			// com/caseystella/parser/bashast.g:606:4: ( '\\\\' EOL )+
+			// com/caseystella/parser/bashast.g:615:2: ( ( '\\\\' EOL )+ )
+			// com/caseystella/parser/bashast.g:615:4: ( '\\\\' EOL )+
 			{
-			// com/caseystella/parser/bashast.g:606:4: ( '\\\\' EOL )+
+			// com/caseystella/parser/bashast.g:615:4: ( '\\\\' EOL )+
 			int cnt9=0;
 			loop9:
 			while (true) {
@@ -2179,7 +2182,7 @@ public class bashastLexer extends Lexer {
 
 				switch (alt9) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:606:5: '\\\\' EOL
+					// com/caseystella/parser/bashast.g:615:5: '\\\\' EOL
 					{
 					match('\\'); 
 					mEOL(); 
@@ -2212,8 +2215,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ESC_RPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:608:2: ( '\\\\' RPAREN )
-			// com/caseystella/parser/bashast.g:608:4: '\\\\' RPAREN
+			// com/caseystella/parser/bashast.g:617:2: ( '\\\\' RPAREN )
+			// com/caseystella/parser/bashast.g:617:4: '\\\\' RPAREN
 			{
 			match('\\'); 
 			mRPAREN(); 
@@ -2234,8 +2237,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ESC_LPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:610:2: ( '\\\\' LPAREN )
-			// com/caseystella/parser/bashast.g:610:4: '\\\\' LPAREN
+			// com/caseystella/parser/bashast.g:619:2: ( '\\\\' LPAREN )
+			// com/caseystella/parser/bashast.g:619:4: '\\\\' LPAREN
 			{
 			match('\\'); 
 			mLPAREN(); 
@@ -2256,8 +2259,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ESC_LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:611:8: ( '\\\\' '<' )
-			// com/caseystella/parser/bashast.g:611:10: '\\\\' '<'
+			// com/caseystella/parser/bashast.g:620:8: ( '\\\\' '<' )
+			// com/caseystella/parser/bashast.g:620:10: '\\\\' '<'
 			{
 			match('\\'); 
 			match('<'); 
@@ -2277,8 +2280,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ESC_GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:612:8: ( '\\\\' '>' )
-			// com/caseystella/parser/bashast.g:612:10: '\\\\' '>'
+			// com/caseystella/parser/bashast.g:621:8: ( '\\\\' '>' )
+			// com/caseystella/parser/bashast.g:621:10: '\\\\' '>'
 			{
 			match('\\'); 
 			match('>'); 
@@ -2298,11 +2301,11 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = ESC_CHAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:614:9: ( '\\\\' ( ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )? | 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )? | 'c' . | . ) )
-			// com/caseystella/parser/bashast.g:614:11: '\\\\' ( ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )? | 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )? | 'c' . | . )
+			// com/caseystella/parser/bashast.g:623:9: ( '\\\\' ( ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )? | 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )? | 'c' . | . ) )
+			// com/caseystella/parser/bashast.g:623:11: '\\\\' ( ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )? | 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )? | 'c' . | . )
 			{
 			match('\\'); 
-			// com/caseystella/parser/bashast.g:614:16: ( ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )? | 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )? | 'c' . | . )
+			// com/caseystella/parser/bashast.g:623:16: ( ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )? | 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )? | 'c' . | . )
 			int alt12=4;
 			int LA12_0 = input.LA(1);
 			if ( ((LA12_0 >= '0' && LA12_0 <= '7')) ) {
@@ -2350,7 +2353,7 @@ public class bashastLexer extends Lexer {
 
 			switch (alt12) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:614:17: ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )?
+					// com/caseystella/parser/bashast.g:623:17: ( '0' .. '7' ) ( '0' .. '7' ) ( '0' .. '7' )?
 					{
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '7') ) {
 						input.consume();
@@ -2368,7 +2371,7 @@ public class bashastLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// com/caseystella/parser/bashast.g:614:37: ( '0' .. '7' )?
+					// com/caseystella/parser/bashast.g:623:37: ( '0' .. '7' )?
 					int alt10=2;
 					int LA10_0 = input.LA(1);
 					if ( ((LA10_0 >= '0' && LA10_0 <= '7')) ) {
@@ -2394,7 +2397,7 @@ public class bashastLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// com/caseystella/parser/bashast.g:614:49: 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )?
+					// com/caseystella/parser/bashast.g:623:49: 'x' ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )?
 					{
 					match('x'); 
 					if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -2405,7 +2408,7 @@ public class bashastLexer extends Lexer {
 						recover(mse);
 						throw mse;
 					}
-					// com/caseystella/parser/bashast.g:614:80: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )?
+					// com/caseystella/parser/bashast.g:623:80: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )?
 					int alt11=2;
 					int LA11_0 = input.LA(1);
 					if ( ((LA11_0 >= '0' && LA11_0 <= '9')||(LA11_0 >= 'A' && LA11_0 <= 'F')||(LA11_0 >= 'a' && LA11_0 <= 'f')) ) {
@@ -2431,14 +2434,14 @@ public class bashastLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// com/caseystella/parser/bashast.g:614:110: 'c' .
+					// com/caseystella/parser/bashast.g:623:110: 'c' .
 					{
 					match('c'); 
 					matchAny(); 
 					}
 					break;
 				case 4 :
-					// com/caseystella/parser/bashast.g:614:115: .
+					// com/caseystella/parser/bashast.g:623:115: .
 					{
 					matchAny(); 
 					}
@@ -2462,8 +2465,8 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = NAME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:615:6: ( ( LETTER | '_' ) ( ALPHANUM | '_' )+ )
-			// com/caseystella/parser/bashast.g:615:8: ( LETTER | '_' ) ( ALPHANUM | '_' )+
+			// com/caseystella/parser/bashast.g:624:6: ( ( LETTER | '_' ) ( ALPHANUM | '_' )+ )
+			// com/caseystella/parser/bashast.g:624:8: ( LETTER | '_' ) ( ALPHANUM | '_' )+
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
 				input.consume();
@@ -2473,7 +2476,7 @@ public class bashastLexer extends Lexer {
 				recover(mse);
 				throw mse;
 			}
-			// com/caseystella/parser/bashast.g:615:20: ( ALPHANUM | '_' )+
+			// com/caseystella/parser/bashast.g:624:20: ( ALPHANUM | '_' )+
 			int cnt13=0;
 			loop13:
 			while (true) {
@@ -2522,10 +2525,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = NQCHAR_NO_ALPHANUM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:617:2: ( (~ ( '\\n' | '\\r' | ' ' | '\\t' | '\\\\' | CARET | QMARK | COLON | AT | SEMIC | POUND | SLASH | BANG | TIMES | COMMA | PIPE | AMP | MINUS | PLUS | PCT | EQUALS | LSQUARE | RSQUARE | RPAREN | LPAREN | RBRACE | LBRACE | DOLLAR | TICK | DOT | LT | GT | SQUOTE | QUOTE | 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )+ )
-			// com/caseystella/parser/bashast.g:617:4: (~ ( '\\n' | '\\r' | ' ' | '\\t' | '\\\\' | CARET | QMARK | COLON | AT | SEMIC | POUND | SLASH | BANG | TIMES | COMMA | PIPE | AMP | MINUS | PLUS | PCT | EQUALS | LSQUARE | RSQUARE | RPAREN | LPAREN | RBRACE | LBRACE | DOLLAR | TICK | DOT | LT | GT | SQUOTE | QUOTE | 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )+
+			// com/caseystella/parser/bashast.g:626:2: ( (~ ( '\\n' | '\\r' | ' ' | '\\t' | '\\\\' | CARET | QMARK | COLON | AT | SEMIC | POUND | SLASH | BANG | TIMES | COMMA | PIPE | AMP | MINUS | PLUS | PCT | EQUALS | LSQUARE | RSQUARE | RPAREN | LPAREN | RBRACE | LBRACE | DOLLAR | TICK | DOT | LT | GT | SQUOTE | QUOTE | 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )+ )
+			// com/caseystella/parser/bashast.g:626:4: (~ ( '\\n' | '\\r' | ' ' | '\\t' | '\\\\' | CARET | QMARK | COLON | AT | SEMIC | POUND | SLASH | BANG | TIMES | COMMA | PIPE | AMP | MINUS | PLUS | PCT | EQUALS | LSQUARE | RSQUARE | RPAREN | LPAREN | RBRACE | LBRACE | DOLLAR | TICK | DOT | LT | GT | SQUOTE | QUOTE | 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )+
 			{
-			// com/caseystella/parser/bashast.g:617:4: (~ ( '\\n' | '\\r' | ' ' | '\\t' | '\\\\' | CARET | QMARK | COLON | AT | SEMIC | POUND | SLASH | BANG | TIMES | COMMA | PIPE | AMP | MINUS | PLUS | PCT | EQUALS | LSQUARE | RSQUARE | RPAREN | LPAREN | RBRACE | LBRACE | DOLLAR | TICK | DOT | LT | GT | SQUOTE | QUOTE | 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )+
+			// com/caseystella/parser/bashast.g:626:4: (~ ( '\\n' | '\\r' | ' ' | '\\t' | '\\\\' | CARET | QMARK | COLON | AT | SEMIC | POUND | SLASH | BANG | TIMES | COMMA | PIPE | AMP | MINUS | PLUS | PCT | EQUALS | LSQUARE | RSQUARE | RPAREN | LPAREN | RBRACE | LBRACE | DOLLAR | TICK | DOT | LT | GT | SQUOTE | QUOTE | 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' ) )+
 			int cnt14=0;
 			loop14:
 			while (true) {
@@ -2574,10 +2577,10 @@ public class bashastLexer extends Lexer {
 		try {
 			int _type = NQSTR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// com/caseystella/parser/bashast.g:618:7: ( ( NQCHAR_NO_ALPHANUM | ALPHANUM )+ )
-			// com/caseystella/parser/bashast.g:618:9: ( NQCHAR_NO_ALPHANUM | ALPHANUM )+
+			// com/caseystella/parser/bashast.g:627:7: ( ( NQCHAR_NO_ALPHANUM | ALPHANUM )+ )
+			// com/caseystella/parser/bashast.g:627:9: ( NQCHAR_NO_ALPHANUM | ALPHANUM )+
 			{
-			// com/caseystella/parser/bashast.g:618:9: ( NQCHAR_NO_ALPHANUM | ALPHANUM )+
+			// com/caseystella/parser/bashast.g:627:9: ( NQCHAR_NO_ALPHANUM | ALPHANUM )+
 			int cnt15=0;
 			loop15:
 			while (true) {
@@ -2592,14 +2595,14 @@ public class bashastLexer extends Lexer {
 
 				switch (alt15) {
 				case 1 :
-					// com/caseystella/parser/bashast.g:618:10: NQCHAR_NO_ALPHANUM
+					// com/caseystella/parser/bashast.g:627:10: NQCHAR_NO_ALPHANUM
 					{
 					mNQCHAR_NO_ALPHANUM(); 
 
 					}
 					break;
 				case 2 :
-					// com/caseystella/parser/bashast.g:618:29: ALPHANUM
+					// com/caseystella/parser/bashast.g:627:29: ALPHANUM
 					{
 					mALPHANUM(); 
 

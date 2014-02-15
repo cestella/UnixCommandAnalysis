@@ -1,3 +1,5 @@
+
+import com.caseystella.util.CLIParserDriver
 import org.scalatest._
 import org.scalatest.matchers.Matchers
 

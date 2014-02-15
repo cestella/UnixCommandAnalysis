@@ -1,7 +1,11 @@
+package com.caseystella.util
+
+
 import java.util
 import scala.collection.JavaConversions._
-import org.antlr.runtime.tree.{CommonTree, Tree}
+import org.antlr.runtime.tree.CommonTree
 import org.antlr.runtime.{CommonTokenStream, ANTLRStringStream}
+import com.caseystella.parser.{bashastParser, bashastLexer}
 
 /**
  * Created by cstella on 2/14/14.
@@ -13,7 +17,7 @@ class CLIParserDriver {
   def getSyntaxTree(commandLine : String) :CommonTree= {
     val lexer = new bashastLexer(new ANTLRStringStream(commandLine))
     val parser = new bashastParser(new CommonTokenStream(lexer))
-    val tree = parser.start().tree
+    val tree = parser.start().getTree()
     tree
   }
 
@@ -38,7 +42,7 @@ class CLIParserDriver {
     def getCommandTokensAccumulator(tree:CommonTree, accumulator : List[CommandType]) : List[CommandType]= {
       tree.getText match {
         case "COMMAND" => accumulator ++ List(new CommandType(tree.getChild(0).getChild(0).getText(), getSubCommands(tree)))
-        case _ => toList(tree.getChildren()).foldLeft(accumulator){ (t1, t2) => t1 ++ getCommandTokensAccumulator(t2, List.empty[CommandType]) }
+        case _ => toList(tree.getChildren()).foldLeft(accumulator){ (acc, child) => acc ++ getCommandTokensAccumulator(child, List.empty[CommandType]) }
       }
     }
     getCommandTokensAccumulator(tree, List.empty[CommandType])
@@ -52,6 +56,6 @@ class CLIParserDriver {
       }
 
     commands.foldLeft(List.empty[CommandBigram]){ (acc, command) => acc ++getCommandsExceptMe(command._1).map( (x) => (command._1, x) ) ++ command._2.map( (x) => (command._1, x) ) }
-    }
+  }
 
 }
