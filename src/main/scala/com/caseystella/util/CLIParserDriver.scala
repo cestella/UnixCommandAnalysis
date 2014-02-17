@@ -48,16 +48,18 @@ class CLIParserDriver extends Serializable{
     getCommandTokensAccumulator(tree, List.empty[CommandType])
   }
 
+  val endCommandBigram = "END"
 
   def toCommandBigrams(commands : List[CommandType]) : List[CommandBigram] = {
-    def getCommandsExceptMe(command: String): List[String] = {
-      val projection = commands.map( (x:CommandType) => x._1).dropWhile(!_.equals(command)).drop(1)
-        Set(projection: _*).toList.asInstanceOf[List[String]]
-      }
 
-    commands.foldLeft(List.empty[CommandBigram]){
-      (acc, command) => acc ++ getCommandsExceptMe(command._1).map( (x) => (command._1, x) ) ++ command._2.map( (x) => (command._1, x) )
-    }.filter((y:CommandBigram) => y._1 != y._2)
+    val commandProjections = commands.map( x => x._1)
+    val bigrams = (List(endCommandBigram) ++ commandProjections).zip(commandProjections ++ List(endCommandBigram))
+                                                                .drop(1)
+
+    val subCommands = commands.foldLeft(List.empty[CommandBigram]){ (acc, command) => acc ++ command._2.map( (x) => (command._1, x) ) }
+
+    (bigrams ++ subCommands).filter((y:CommandBigram) => y._1 != y._2)
+
   }
 
 }

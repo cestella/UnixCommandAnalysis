@@ -33,11 +33,12 @@ class TestParser extends FlatSpec with Matchers {
     val commandPairs = driver.toCommandBigrams(commandList)
     System.out.println(commandPairs)
     assert(commandPairs != null)
+    assert(commandPairs.size == 5)
     assert(commandPairs.contains(("ls", "du")))
     assert(commandPairs.contains(("ls", "grep")))
-    assert(commandPairs.contains(("ls", "exit")))
     assert(commandPairs.contains(("grep", "exit")))
-    assert(commandPairs.contains(("grep", "ls")))
+    assert(commandPairs.contains(("exit", "ls")))
+    assert(commandPairs.contains(("ls", "END")))
     assert(!commandPairs.contains(("ls", "ls")))
   }
 }

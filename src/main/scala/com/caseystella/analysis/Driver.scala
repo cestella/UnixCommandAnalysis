@@ -43,7 +43,7 @@ object Driver {
         Seq(new InputFormatInfo(conf, classOf[org.apache.hadoop.mapred.TextInputFormat], inputPath))
       ))
     val commands = sc.textFile(optionMap('input))
-    val tfidf = new Analysis().analyze( commands)
-    tfidf.saveAsTextFile(optionMap('output))
+    val analysis = new Analysis().mutualInformation( commands)
+    analysis.saveAsTextFile(optionMap('output))
   }
 }
