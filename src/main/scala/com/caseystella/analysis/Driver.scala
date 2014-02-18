@@ -23,6 +23,7 @@ object Driver {
         case Nil => map
         case "--stop" :: value :: tail => nextOption(map ++ Map('stop -> value.toString), tail)
         case "--master" :: value :: tail => nextOption(map ++ Map('master -> value.toString), tail)
+        case "--algo" :: value :: tail => nextOption(map ++ Map('algo -> value.toString), tail)
         case string :: opt2 :: tail  => nextOption(map ++ Map('input -> string, 'output -> opt2), tail)
         case string :: Nil =>  nextOption(map ++ Map('output -> string), list.tail)
         case option :: tail =>  throw new RuntimeException("Unknown option " + option)
@@ -43,7 +44,13 @@ object Driver {
         Seq(new InputFormatInfo(conf, classOf[org.apache.hadoop.mapred.TextInputFormat], inputPath))
       ))
     val commands = sc.textFile(optionMap('input))
-    val analysis = new Analysis().mutualInformation( commands)
+
+    val analysis = optionMap('algo) match {
+      case "mi" => new Analysis().mutualInformation( commands)
+      case "g_2" => new Analysis().g_2( commands)
+      case "freq" => new Analysis().rawFrequency( commands)
+      case _ => throw new RuntimeException("Unknown algorithm: " + optionMap('algo))
+    }
     analysis.saveAsTextFile(optionMap('output))
   }
 }

@@ -69,7 +69,8 @@
       <artifactId>antlr-runtime</artifactId>
       <version>3.5.1</version>
     </dependency>
-    <dependency>
+
+      <dependency>
         <groupId>org.scalatest</groupId>
         <artifactId>scalatest_${scala.binary.version}</artifactId>
         <version>1.9.1</version>

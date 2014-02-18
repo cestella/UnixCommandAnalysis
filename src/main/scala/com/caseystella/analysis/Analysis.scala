@@ -6,6 +6,7 @@ import org.apache.spark.deploy.SparkHadoopUtil
 import org.apache.spark.rdd.RDD
 import org.apache.spark.SparkContext._
 import com.caseystella.util.CLIParserDriver
+import com.caseystella.math.LogLikelihood
 
 /**
  * Created by cstella on 2/14/14.
@@ -15,15 +16,29 @@ class Analysis extends Serializable {
   type ScoredBigram = Tuple2[Bigram, Double]
   type BigramCount = Tuple2[Bigram, Int]
 
+  def rawFrequency(commands:RDD[String]) :RDD[ScoredBigram] =  {
+    val parser = new CLIParserDriver
+    val commandsAsBigrams= commands.map( line => parser.toCommandBigrams(parser.getCommandTokens(parser.getSyntaxTree(line.toString))))
+
+    val bigramsWithoutEnds = commandsAsBigrams.flatMap( bigrams => bigrams.filter( (bigram:Bigram) => bigram._2 != "END"))
+    val bigramCounts = bigramsWithoutEnds.map( (bigram:Bigram) => (bigram, 1))
+                                         .reduceByKey( (x:Int, y:Int) => x + y)
+    val totalNumBigrams = bigramsWithoutEnds.count()
+
+    bigramCounts.map( (bigramCount:BigramCount) => (1.0*bigramCount._2/totalNumBigrams, bigramCount._1 ) )
+                .sortByKey(false) //sort the value (it's the first in the pair)
+                .map( (x:Tuple2[Double, Bigram]) => (x._2, x._1)) //now invert the order of the pair
+  }
+
   def mutualInformation(commands:RDD[String]) :RDD[ScoredBigram] =  {
 
     def calculate(p_xy:Double, p_x:Double, p_y:Double) : Double = {
-      Math.log(p_xy / (p_x*p_y)) / Math.log(2)
+      (Math.log(p_xy)/Math.log(2)) * (Math.log(p_xy / (p_x*p_y)) / Math.log(2))
     }
 
     val parser = new CLIParserDriver
     val commandsAsBigrams= commands.map( line => parser.toCommandBigrams(parser.getCommandTokens(parser.getSyntaxTree(line.toString))))
-    val commandCounts = commandsAsBigrams.flatMap( (bigrams:List[Bigram] ) => bigrams.flatMap( (bigram:Bigram) => List(bigram._1)))
+    val commandCounts = commandsAsBigrams.flatMap( (bigrams:List[Bigram] ) => Set(bigrams.flatMap( (bigram:Bigram) => List(bigram._1, bigram._2)).filter(x => x != "END"):_*))
                                       .map( (command:String) => (command, 1))
                                       .reduceByKey( (x:Int, y:Int) => x + y)
 
@@ -39,29 +54,33 @@ class Analysis extends Serializable {
                 .sortByKey(false) //sort the value (it's the first in the pair)
                 .map( (x:Tuple2[Double, Bigram]) => (x._2, x._1)) //now invert the order of the pair
   }
-  def tfidf( commands : RDD[String]):RDD[ScoredBigram] = {
+
+  def g_2(commands:RDD[String]) :RDD[ScoredBigram] =  {
+
+    def calculate(p_xy:Long, p_x:Long, p_y:Long, numCommands:Long) : Double = {
+      val k11= p_xy
+      val k12= (p_x - p_xy)
+      val k21= (p_y - p_xy)
+      val k22= numCommands- (p_x + p_y - p_xy)
+      LogLikelihood.logLikelihoodRatio(k11.asInstanceOf[Long], k12.asInstanceOf[Long], k21.asInstanceOf[Long], k22.asInstanceOf[Long])
+    }
+
     val parser = new CLIParserDriver
     val commandsAsBigrams= commands.map( line => parser.toCommandBigrams(parser.getCommandTokens(parser.getSyntaxTree(line.toString))))
-    val num_commands = commandsAsBigrams.count()
+    val commandCounts = commandsAsBigrams.flatMap( (bigrams:List[Bigram] ) => Set(bigrams.flatMap( (bigram:Bigram) => List(bigram._1, bigram._2)).filter(x => x != "END"):_*))
+                                      .map( (command:String) => (command, 1))
+                                      .reduceByKey( (x:Int, y:Int) => x + y)
 
-    // compute TF
-    val frequencies = commandsAsBigrams.flatMap( bigrams => bigrams)
-                                       .map( (b:Bigram) => (b, 1))
-                                       .reduceByKey( (x:Int, y:Int) => x + y)
-                                       .map( (x:Tuple2[Bigram, Int]) => (x._1, Math.log1p(1.0*x._2/num_commands) ))
+    val commandCountsArr = commandCounts.collect()
+    val commandCountsMap = Map(commandCountsArr:_*)
+    val numCommands = commandCountsMap.foldLeft(0)( (acc, x) => acc + x._2)
+    val bigramsWithoutEnds = commandsAsBigrams.flatMap( bigrams => bigrams.filter( (bigram:Bigram) => bigram._2 != "END"))
+    val bigramCounts = bigramsWithoutEnds.map( (bigram:Bigram) => (bigram, 1))
+                                         .reduceByKey( (x:Int, y:Int) => x + y)
+    val totalNumBigrams = bigramsWithoutEnds.count()
 
-    // compute IDF
-    val idf = commandsAsBigrams.flatMap( (bigrams:List[Bigram]) => Set(bigrams: _*).toList.asInstanceOf[List[Bigram]])
-                               .map( (b:Bigram) => (b, 1))
-                               .reduceByKey( (x:Int, y:Int) => x + y)
-                               .map((x:BigramCount) => (x._1, Math.log(1.0*num_commands/x._2)))
-    val tfidf = frequencies.join(idf)
-                           .map( (x:Tuple2[Bigram, Tuple2[Double, Double] ]) => (x._2._1*x._2._2, x._1))
-                           .sortByKey(false)
-                           .map( (x:Tuple2[Double, Bigram]) => (x._2, x._1))
-
-
-    tfidf
+    bigramCounts.map( (bigramCount:BigramCount) => (calculate(bigramCount._2, commandCountsMap(bigramCount._1._1), commandCountsMap(bigramCount._1._2), numCommands), bigramCount._1 ) )
+                .sortByKey(false) //sort the value (it's the first in the pair)
+                .map( (x:Tuple2[Double, Bigram]) => (x._2, x._1)) //now invert the order of the pair
   }
-
 }

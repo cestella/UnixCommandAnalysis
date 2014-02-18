@@ -41,4 +41,13 @@ class TestParser extends FlatSpec with Matchers {
     assert(commandPairs.contains(("ls", "END")))
     assert(!commandPairs.contains(("ls", "ls")))
   }
+
+  "A command in a for loop" should "create sensible pairs" in {
+     val driver = new CLIParserDriver
+    val simplePipeline = "for i in `lanscan -i | awk '{print $1}'` ; do ifconfig $i ; done"
+    val tree = driver.getSyntaxTree(simplePipeline)
+    val commandList = driver.getCommandTokens(tree)
+    val commandPairs = driver.toCommandBigrams(commandList)
+    System.out.println(commandPairs)
+  }
 }
