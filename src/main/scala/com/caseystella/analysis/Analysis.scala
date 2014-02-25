@@ -6,7 +6,7 @@ import org.apache.spark.deploy.SparkHadoopUtil
 import org.apache.spark.rdd.RDD
 import org.apache.spark.SparkContext._
 import com.caseystella.util.CLIParserDriver
-import com.caseystella.math.LogLikelihood
+import org.apache.mahout.math.stats.LogLikelihood
 
 /**
  * Created by cstella on 2/14/14.
@@ -62,12 +62,17 @@ class Analysis extends Serializable {
       val k12= (p_x - p_xy)
       val k21= (p_y - p_xy)
       val k22= numCommands- (p_x + p_y - p_xy)
+      if(k11 < 0 || k12 < 0 || k21 < 0 || k22 < 0)
+      {
+        val out = List(p_xy, p_x, p_y, k11, k12, k21, k22).toString
+        throw new RuntimeException(out)
+      }
       LogLikelihood.logLikelihoodRatio(k11.asInstanceOf[Long], k12.asInstanceOf[Long], k21.asInstanceOf[Long], k22.asInstanceOf[Long])
     }
 
     val parser = new CLIParserDriver
     val commandsAsBigrams= commands.map( line => parser.toCommandBigrams(parser.getCommandTokens(parser.getSyntaxTree(line.toString))))
-    val commandCounts = commandsAsBigrams.flatMap( (bigrams:List[Bigram] ) => Set(bigrams.flatMap( (bigram:Bigram) => List(bigram._1, bigram._2)).filter(x => x != "END"):_*))
+    val commandCounts = commandsAsBigrams.flatMap( (bigrams:List[Bigram] ) => bigrams.flatMap( (bigram:Bigram) => List(bigram._1, bigram._2)).filter(x => x != "END"))
                                       .map( (command:String) => (command, 1))
                                       .reduceByKey( (x:Int, y:Int) => x + y)
 
@@ -75,7 +80,7 @@ class Analysis extends Serializable {
     val commandCountsMap = Map(commandCountsArr:_*)
     val numCommands = commandCountsMap.foldLeft(0)( (acc, x) => acc + x._2)
     val bigramsWithoutEnds = commandsAsBigrams.flatMap( bigrams => bigrams.filter( (bigram:Bigram) => bigram._2 != "END"))
-    val bigramCounts = bigramsWithoutEnds.map( (bigram:Bigram) => (bigram, 1))
+    val bigramCounts = bigramsWithoutEnds.map( (bigram:Bigram) => (bigram, 1) )
                                          .reduceByKey( (x:Int, y:Int) => x + y)
     val totalNumBigrams = bigramsWithoutEnds.count()
 
