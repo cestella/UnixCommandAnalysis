@@ -54,23 +54,23 @@
   </repositories>
 
   <dependencies>
-    <dependency>
-      <groupId>org.apache.spark</groupId>
-      <artifactId>spark-core_${scala.binary.version}</artifactId>
-      <version>${spark.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-client</artifactId>
-      <version>${hadoop.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.antlr</groupId>
-      <artifactId>antlr-runtime</artifactId>
-      <version>3.5.1</version>
-    </dependency>
+      <dependency>
+          <groupId>org.apache.spark</groupId>
+          <artifactId>spark-core_${scala.binary.version}</artifactId>
+          <version>${spark.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.hadoop</groupId>
+          <artifactId>hadoop-client</artifactId>
+          <version>${hadoop.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>org.antlr</groupId>
+          <artifactId>antlr-runtime</artifactId>
+          <version>3.5.1</version>
+      </dependency>
       <dependency>
           <groupId>org.apache.mahout</groupId>
           <artifactId>mahout-math</artifactId>
@@ -78,11 +78,11 @@
       </dependency>
 
       <dependency>
-        <groupId>org.scalatest</groupId>
-        <artifactId>scalatest_${scala.binary.version}</artifactId>
-        <version>1.9.1</version>
-        <scope>test</scope>
-    </dependency>
+          <groupId>org.scalatest</groupId>
+          <artifactId>scalatest_${scala.binary.version}</artifactId>
+          <version>1.9.1</version>
+          <scope>test</scope>
+      </dependency>
 
   </dependencies>
   <build>
