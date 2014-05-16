@@ -30,7 +30,7 @@ class TestAnalysis extends FunSuite with LocalSparkContext {
     val commandsRdd = sc.makeRDD(commands, 2)
     assert(commandsRdd.collect().toList == commands);
 
-    val scoredBigrams = new Analysis().mutualInformation(commandsRdd)
+    val scoredBigrams = new Analysis().g_2(commandsRdd)
     val collectedBigrams = scoredBigrams.collect().toList
     System.out.println(collectedBigrams)
     assert( collectedBigrams.size == 4)
